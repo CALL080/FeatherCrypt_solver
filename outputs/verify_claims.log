@@ -26,6 +26,7 @@ R=12  W*=42  paper=42  OK   optimal trails in one component: 32  (x4 in the ciph
 R=13  W*=46  paper=46  OK   optimal trails in one component: 8  (x4 in the cipher: 32)
 R=14  W*=49  paper=49  OK   optimal trails in one component: 20  (x4 in the cipher: 80)
 R=15  W*=53  paper=53  OK   optimal trails in one component: 88  (x4 in the cipher: 352)
+R=16  W*=57  paper=57  OK   optimal trails in one component: 32  (x4 in the cipher: 128)
 == 6. all 32 admissible multipliers: independent components of the S-box graph
 r= 1 order= 1: 16 components of 4 bits
 r= 9 order= 8: 2 components of 32 bits

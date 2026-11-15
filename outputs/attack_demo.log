@@ -1,12 +1,15 @@
+Python 3.12.7, NumPy 2.5.3
 == A. two-query distinguisher (full 16 rounds)
 pairs whose ciphertext difference stays inside the active component: 400000/400000
 == B. decryption of any ciphertext with 2^16 chosen plaintexts
-table construction: 0.085 s for 2^16 queries; tables: 4 x 2^16 x 16 bits = 512 KiB
-decrypted 1000000/1000000 random ciphertexts correctly in 0.212 s
+table construction: 0.094 s for 2^16 queries; the four tables occupy 524288 bytes (4 x 2^16 entries of 16 bits = 512 KiB)
+decrypted 1000000/1000000 random ciphertexts correctly in 0.485 s
 == C. known-plaintext recovery: number of uniform random plaintexts until all four tables are complete
-trials=200: mean 2^19.70, median 2^19.67, max 2^20.21; fraction within the bound 2^20.1 (1.12e6): 0.995
+trials=200: mean 2^19.70, median 2^19.67, max 2^20.21; fraction within the bound N = 1119475 (2^20.1): 0.995
 == D. avalanche of the r = 17 instance: one plaintext bit flipped, 16 rounds
 changed ciphertext bits: mean 8.00 of 64 (12.5%), max 16 (bound 16 = 25%)
 == E. bit numbering: bit 0 = MSB instead of LSB
 S-box index mod 4 is preserved under MSB-first numbering: True
 two-query distinguisher under MSB-first numbering: 200000 / 200000
+== F. decryption from known plaintexts only (no chosen query)
+1119475 known pairs filled 262144 of 262144 table entries; decrypted 100000/100000 fresh ciphertexts correctly

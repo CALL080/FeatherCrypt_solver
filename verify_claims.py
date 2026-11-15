@@ -193,8 +193,8 @@ f = [0] * 65536
 cnt = [1] * 65536
 f[0] = INF
 cnt[0] = 0
-paper = [2, 4, 8, 12, 16, 19, 23, 27, 31, 34, 38, 42, 46, 49, 53]
-for r in range(1, 16):
+paper = [2, 4, 8, 12, 16, 19, 23, 27, 31, 34, 38, 42, 46, 49, 53, 57]
+for r in range(1, 17):
     f, cnt = round_dp(f, cnt)
     w = min(f)
     n = sum(c for fv, c in zip(f, cnt) if fv == w)

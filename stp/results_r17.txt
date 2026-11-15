@@ -1,4 +1,4 @@
-# STP 2.3.3, FeatherCrypt_stp.py with r = 17 (default). 'Valid.' = the model has no solution.
+# STP 2.3.3, FeatherCrypt_stp.py with r = 17 (default). "Valid." = the model has no solution. Rounds 2-15: runs of the co-author; round 16: our run.
 2r_w3: no characteristic
 2r_w4: characteristic found
 3r_w7: no characteristic
@@ -27,3 +27,5 @@
 14r_w49: characteristic found
 15r_w52: no characteristic
 15r_w53: characteristic found
+16r_w56: no characteristic (our run, 1822 s)
+16r_w57: characteristic found (our run, 1313 s)

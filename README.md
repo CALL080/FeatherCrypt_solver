@@ -29,14 +29,14 @@ The main theorem holds for arbitrary round keys, and the attacks do not use the 
 | Sect. 5 | STP confirms that characteristics with these probabilities exist | see `stp/results_other_multipliers.txt` | |
 | Sect. 6.1 | One-round linear approximation with correlation 1/2 | `python explore_multipliers.py` | first line (`E4`) |
 | Sect. 6.2, Table 6 | Minimum weights 2, 4, 8, ..., 53, 57 for 1 to 16 rounds, and the numbers of optimal characteristics 384, ..., 352, 128 | `python verify_claims.py` | `== 5` (exhaustive dynamic program, no solver) |
-| Sect. 6.2, Table 6 | The same minimum weights for 2 to 15 rounds with STP | `cd stp && ./run_stp.sh 2 15` | `stp/results_r17.txt` (weight <= W: characteristic found; weight <= W-1: none) |
+| Sect. 6.2, Table 6 | The same minimum weights for 2 to 16 rounds with STP | `cd stp && ./run_stp.sh 2 16` | `stp/results_r17.txt` (weight <= W: characteristic found; weight <= W-1: none) |
 | Sect. 6.3 | The rotation by four bits commutes with the permutation | `python verify_claims.py` | `== 2` |
 | Sect. 6.3 | No right pair for the characteristic of Fig. 4 in 60 keys; 0.47 pairs per key with its output difference | `python verify_claims.py` | `== 4` |
 | Sect. 6.3 | Only 8 of the 56 "zero" bits filter: pass rate 2^-8.01 | `python verify_claims.py` | `== 3` |
 
 Run times on one PC: `verify_claims.py` about 20 s, `attack_demo.py` about 2 min,
 `explore_multipliers.py` about 20 s, `trail_other_multipliers.py` about 1 min.
-`stp/run_stp.sh 2 9` takes about 7 min; the higher rounds take longer (results of all rounds: `stp/results_r17.txt`).
+`stp/run_stp.sh 2 9` takes about 7 min; the higher rounds take longer, about 20-30 min for each 16-round model (results of all rounds: `stp/results_r17.txt`).
 The random seeds are fixed, so the outputs are the same on every run (except the times).
 
 ## Files

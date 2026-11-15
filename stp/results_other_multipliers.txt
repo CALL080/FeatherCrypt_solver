@@ -1,0 +1,11 @@
+# STP 2.3.3, FeatherCrypt_stp.py -r 16 --perm-multiplier r -w W [--input-diff ... --output-diff ...]
+# (a) no fixed differences: a characteristic of weight <= W exists
+r=43 W=39: characteristic found (234 s)
+r=3  W=44: characteristic found (259 s)
+r=31 W=46: characteristic found (348 s)
+r=63 W=46: characteristic found (182 s)
+# (b) input and output differences fixed to those printed by trail_other_multipliers.py
+r=43: weight <= 39 characteristic found, weight <= 38 no characteristic
+r=3 : weight <= 44 characteristic found, weight <= 43 no characteristic
+r=31: weight <= 46 characteristic found, weight <= 45 no characteristic
+r=63: weight <= 46 characteristic found, weight <= 45 no characteristic

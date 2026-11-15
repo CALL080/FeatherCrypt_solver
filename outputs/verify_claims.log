@@ -1,0 +1,38 @@
+== 0. sanity: fast vs slow 64-bit implementation
+ok
+== 1. Theorem 1 (four independent 16-bit components), 2000 random (P,K)
+ok: E_K = F0 x F1 x F2 x F3 holds in all trials
+== 2. P commutes with every nibble rotation (RotL by 4k bits)
+ok for all 16 rotations -> every trail has 16 rotated copies
+== 3. pre-filter: fraction of random pairs with dP=DC1 passing the '56-bit' zero filter
+pass rate = 155/40000 = 2^-8.01   (a filter on 56 bits would give 2^-56; only 8 bits are effective -> 2^-8)
+== 4. right pairs of DC1 inside V0, exhaustive over all 2^15 pairs, per key
+keys=60: pairs following the whole 15-round characteristic: total 0
+          pairs with dX15 = DC1 output (differential): mean 0.467 per key (16-bit random perm: 0.5)
+          pairs passing the ciphertext filter: mean 126.3 of 32768 per key (2^15 * 2^-8 = 128)
+== 5. exact minimum weights by DP inside one component (independent of STP)
+R= 1  W*= 2  paper= 2  OK   optimal trails in one component: 96  (x4 in the cipher: 384)
+R= 2  W*= 4  paper= 4  OK   optimal trails in one component: 52  (x4 in the cipher: 208)
+R= 3  W*= 8  paper= 8  OK   optimal trails in one component: 152  (x4 in the cipher: 608)
+R= 4  W*=12  paper=12  OK   optimal trails in one component: 32  (x4 in the cipher: 128)
+R= 5  W*=16  paper=16  OK   optimal trails in one component: 8  (x4 in the cipher: 32)
+R= 6  W*=19  paper=19  OK   optimal trails in one component: 36  (x4 in the cipher: 144)
+R= 7  W*=23  paper=23  OK   optimal trails in one component: 88  (x4 in the cipher: 352)
+R= 8  W*=27  paper=27  OK   optimal trails in one component: 32  (x4 in the cipher: 128)
+R= 9  W*=31  paper=31  OK   optimal trails in one component: 8  (x4 in the cipher: 32)
+R=10  W*=34  paper=34  OK   optimal trails in one component: 20  (x4 in the cipher: 80)
+R=11  W*=38  paper=38  OK   optimal trails in one component: 88  (x4 in the cipher: 352)
+R=12  W*=42  paper=42  OK   optimal trails in one component: 32  (x4 in the cipher: 128)
+R=13  W*=46  paper=46  OK   optimal trails in one component: 8  (x4 in the cipher: 32)
+R=14  W*=49  paper=49  OK   optimal trails in one component: 20  (x4 in the cipher: 80)
+R=15  W*=53  paper=53  OK   optimal trails in one component: 88  (x4 in the cipher: 352)
+== 6. all 32 admissible multipliers: independent components of the S-box graph
+r= 1 order= 1: 16 components of 4 bits
+r= 9 order= 8: 2 components of 32 bits
+r=17 order= 4: 4 components of 16 bits
+r=25 order= 8: 2 components of 32 bits
+r=33 order= 2: 8 components of 8 bits
+r=41 order= 8: 2 components of 32 bits
+r=49 order= 4: 4 components of 16 bits
+r=57 order= 8: 2 components of 32 bits
+(multipliers not listed: one 64-bit component)

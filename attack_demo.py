@@ -156,3 +156,25 @@ for c in range(4):
     rec |= embed(TK[c][extract(fresh_c, c).astype(np.intp)].astype(np.uint64), c)
 print(f"{N99} known pairs filled {filled} of {4 * 65536} table entries; "
       f"decrypted {int(np.count_nonzero(rec == fresh_p))}/{M2} fresh ciphertexts correctly")
+
+print("== G. distinguisher from known plaintexts: two random plaintexts that agree in one component")
+TRG, NK = 1000, 1 << 9
+found = agree = 0
+for _ in range(TRG):
+    pk = rand64(NK)
+    ck = encrypt(pk, rk)
+    hit = False
+    for c in range(4):
+        seen = {}
+        pc, cc = extract(pk, c), extract(ck, c)
+        for v, w in zip(pc.tolist(), cc.tolist()):
+            if v in seen:
+                hit = True
+                agree += int(seen[v] == w)
+                break
+            seen[v] = w
+        if hit:
+            break
+    found += int(hit)
+print(f"{NK} known plaintexts per trial: a pair agreeing in a component was found in {found}/{TRG} trials; "
+      f"its ciphertexts agreed in that component in {agree}/{found}")
